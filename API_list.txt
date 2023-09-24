@@ -1,0 +1,12 @@
+productController
+    Get products - done
+    Add a product - path issues - done
+    Rate product
+    Filter product
+    Add items to cart
+    Get items of cart
+    Remove items of cart
+
+UserController
+    SignUP - Email, Name, password, TypeOfUser(customer / seller)
+    SignIn - Email & Password
