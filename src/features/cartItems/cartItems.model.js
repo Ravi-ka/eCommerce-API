@@ -17,13 +17,22 @@ export default class CartItemModel{
 
     static get(userID){
         return cartItems.filter((u)=> u.userID === userID)
-
     }
+
+static delete(cartItemID, userID){
+    const cartItemIndex = cartItems.findIndex((i)=> i.id === cartItemID && i.userID === userID)
+    if(cartItemIndex === -1){
+        return 'Item not found';
+    }else{
+        cartItems.splice(cartItemIndex,1)
+    }
+}
 
 }
 
 let cartItems = [
     new CartItemModel(1,2,1,1),
     new CartItemModel(1,2,2,2),
+    new CartItemModel(2,2,2,2),
 
 ]
