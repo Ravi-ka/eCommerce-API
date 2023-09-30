@@ -9,6 +9,7 @@ import cartRouter from './src/features/cartItems/cartItems.routes.js';
 import basicAuthorizer from './src/middlewares/basicAuth.middleware.js';
 import jwtAuth from './src/middlewares/jwt.middleware.js';
 import apiDocs from './swagger.json' assert {type: 'json'}
+import loggerMiddleware from './src/middlewares/logger.middleware.js';
 
 // 2. Create Server
 const server = express();
@@ -39,9 +40,10 @@ server.use('/api-docs',swagger.serve,swagger.setup(apiDocs))
 
 // for all requests related to product, redirect to product routes.
 // localhost:3200/api/products
+server.use(loggerMiddleware)
 server.use('/api/products', jwtAuth, productRouter);
 server.use('/api/users', userRouter);
-server.use('/api/cartItems',jwtAuth,cartRouter)
+server.use('/api/cartItems',loggerMiddleware,jwtAuth,cartRouter)
 
 // 3. Default request handler
 server.get('/', (req, res) => {
@@ -50,7 +52,9 @@ server.get('/', (req, res) => {
 
 //  4. Middleware to handle 404 requests. This 404 request should be implemented at the end.
 server.use((req, res)=>{
-  res.status(404).json({status:` ${req.url}  - API path is not available.`,message:'Please visit localhost:3200/api-docs for more information'})
+  res.status(404).json({path:` ${req.url}  - Requested API path is not available.`,
+  status:404
+  ,message:'Please visit localhost:3200/api-docs for more information'})
 })
 
 // 5. Specify port.
