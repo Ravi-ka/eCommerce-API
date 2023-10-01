@@ -50,14 +50,19 @@ server.get('/', (req, res) => {
   res.send('Welcome to Ecommerce APIs');
 });
 
+server.use((err, req, res, next)=>{
+  console.log(err);
+  res.status(503).send('Something went wrong')
+})
+
 //  4. Middleware to handle 404 requests. This 404 request should be implemented at the end.
 server.use((req, res)=>{
   res.status(404).json({path:` ${req.url}  - Requested API path is not available.`,
-  status:404
-  ,message:'Please visit localhost:3200/api-docs for more information'})
+  status:404,
+  message:'Please visit localhost:3200/api-docs for more information'})
 })
 
 // 5. Specify port.
-server.listen(3200);
-
-console.log('Server is running at 3200');
+server.listen(3200,(req, res)=>{
+  console.log('Server is running at 3200');
+});

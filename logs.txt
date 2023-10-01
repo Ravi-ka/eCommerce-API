@@ -1,0 +1,2 @@
+{"level":"info","message":"/api/cartItems - {\"email\":\"customer@ecom.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"/ - {\"email\":\"customer@ecom.com\",\"password\":\"Password1\"}","service":"request-logging"}
