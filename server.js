@@ -10,6 +10,7 @@ import basicAuthorizer from './src/middlewares/basicAuth.middleware.js';
 import jwtAuth from './src/middlewares/jwt.middleware.js';
 import apiDocs from './swagger.json' assert {type: 'json'}
 import loggerMiddleware from './src/middlewares/logger.middleware.js';
+import {connectToMongoDB} from './src/config/mongodb.js';
 
 // 2. Create Server
 const server = express();
@@ -65,4 +66,5 @@ server.use((req, res)=>{
 // 5. Specify port.
 server.listen(3200,(req, res)=>{
   console.log('Server is running at 3200');
+  connectToMongoDB();
 });

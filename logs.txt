@@ -1,2 +1,4 @@
 {"level":"info","message":"/api/cartItems - {\"email\":\"customer@ecom.com\",\"password\":\"Password1\"}","service":"request-logging"}
 {"level":"info","message":"/ - {\"email\":\"customer@ecom.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"email\":\"test@ecom.com\",\"password\":\"Password1\",\"name\":\"test\",\"type\":\"seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"email\":\"test2@ecom.com\",\"password\":\"Password1\",\"name\":\"test2\",\"type\":\"seller2\"}","service":"request-logging"}
