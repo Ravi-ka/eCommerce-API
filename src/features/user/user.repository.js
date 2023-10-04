@@ -30,6 +30,20 @@ class UserRepository{
               throw new ApplicationError("Something went wrong with the data", 500)
         }
       }
+
+      async findByEmail(email) {
+        try {
+              // 1. Get the database
+            const db = getDB();
+            // 2. Get the collection
+            const collection = db.collection("users") 
+            // 3. find the document
+            return await collection.findOne({email});
+            
+        } catch (error) {
+              throw new ApplicationError("Something went wrong with the data", 500)
+        }
+      }
 }
 
 export default UserRepository;

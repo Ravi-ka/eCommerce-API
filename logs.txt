@@ -3,3 +3,6 @@
 {"level":"info","message":"/api/users/signup - {\"email\":\"test@ecom.com\",\"password\":\"Password1\",\"name\":\"test\",\"type\":\"seller\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"email\":\"test2@ecom.com\",\"password\":\"Password1\",\"name\":\"test2\",\"type\":\"seller2\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"email\":\"test3@ecom.com\",\"password\":\"Password1\",\"name\":\"test3\",\"type\":\"seller 3\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"email\":\"test4@ecom.com\",\"password\":\"Password1\",\"name\":\"test seller 4\",\"type\":\"test account\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"email\":\"test4@ecom.com\",\"password\":\"Password1\",\"name\":\"test seller 4\",\"type\":\"test account\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"email\":\"test5@ecom.com\",\"password\":\"Password1\",\"name\":\"test\",\"type\":\"testing\"}","service":"request-logging"}
