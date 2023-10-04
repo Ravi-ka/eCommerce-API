@@ -1,7 +1,11 @@
-// 1. Import Exprerss
+// Load all the environment variables in application. This should be on the first line.
+import "./env.js"
+
+// 1. Import Express
 import express from 'express';
 import swagger from 'swagger-ui-express'
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 import productRouter from './src/features/product/product.routes.js';
 import userRouter from './src/features/user/user.routes.js';
