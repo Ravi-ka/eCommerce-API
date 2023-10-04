@@ -42,12 +42,12 @@ server.use('/api-docs',swagger.serve,swagger.setup(apiDocs))
 // for all requests related to product, redirect to product routes.
 // localhost:3200/api/products
 server.use(loggerMiddleware)
-server.use('/api/products', jwtAuth, productRouter);
-server.use('/api/users', userRouter);
+server.use('/api/products',loggerMiddleware, jwtAuth, productRouter);
+server.use('/api/users',loggerMiddleware, userRouter);
 server.use('/api/cartItems',loggerMiddleware,jwtAuth,cartRouter)
 
 // 3. Default request handler
-server.get('/', (req, res) => {
+server.get('/',loggerMiddleware, (req, res) => {
   res.send('Welcome to Ecommerce APIs');
 });
 
@@ -57,7 +57,7 @@ server.use((err, req, res, next)=>{
 })
 
 //  4. Middleware to handle 404 requests. This 404 request should be implemented at the end.
-server.use((req, res)=>{
+server.use(loggerMiddleware,(req, res)=>{
   res.status(404).json({path:` ${req.url}  - Requested API path is not available.`,
   status:404,
   message:'Please visit localhost:3200/api-docs for more information'})
