@@ -1,6 +1,5 @@
 # eCommerce-API
 This repo contains the backend APIs for the eCommerce application.
-
 <h2 align="left">Tech Stack for this Repo 🔻</h2>
 
 ###
@@ -24,3 +23,16 @@ This repo contains the backend APIs for the eCommerce application.
 </div>
 
 ###
+
+<h5 align="left">🔻Implemented JWT Authentication. <br>🔻Used Swagger for the API Documentation</h5>
+
+###
+
+<br clear="both">
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Ravi-ka&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Ravi-ka&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
+  <img src="https://streak-stats.demolab.com?user=Ravi-ka&locale=en&mode=daily&theme=dracula&hide_border=false&border_radius=5&order=3" height="150" alt="streak graph"  />
+</div>
+
