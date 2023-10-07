@@ -29,5 +29,5 @@ This repo contains the backend APIs for the eCommerce application.
 ###
 
 <br clear="both">
-<h6>Project still inprogress</h6>
+<h6>Project Status: In progress</h6>
 
