@@ -21,5 +21,5 @@ export const getDB = () =>{
 
 /*
 Note: 
-    1. Call the function "connectToMongoDB" in server.js file.
+    1. Call the function "connectToMongoDB" in server.js file on the server.listen()
 */
