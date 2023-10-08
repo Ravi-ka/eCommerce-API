@@ -1,50 +1,129 @@
-import { ApplicationError } from "../../error-handler/applicationError.js";
+import {ObjectId} from 'mongodb';
 import { getDB } from "../../config/mongodb.js";
-import { ObjectId } from "mongodb";
+import { ApplicationError } from "../../error-handler/applicationError.js";
 
 class ProductRepository{
-    async add(newProduct){
-        try {
-            // 1. Get the database
-            const db = getDB();
-            // 2. Get the collection
-            const collection = db.collection("products");
-            // 3. Insert the document
-            await collection.InsertOne(newProduct);
-            return newProduct;
 
-        } catch (error) {
-            throw new ApplicationError("Something went wrong with the data", 500)
-        }
+    constructor(){
+        this.collection = "products";
     }
-
-    async get(id){
-        try {
-            // 1. Get DB
+ 
+    async add(newProduct){
+        try{
+            // 1 . Get the db.
             const db = getDB();
-            // 2. Get the collection
-            const collection = db.collection("products");
-            // 3. Find all the products 
-            return collection.find({_id:ObjectId(id)})
-        } catch (error) {
-            throw new ApplicationError("Something went wrong with the data", 500)
+            const collection = db.collection(this.collection);
+            await collection.insertOne(newProduct);
+            return newProduct;
+        } catch(err){
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500);
         }
     }
 
     async getAll(){
-        try {
-            // 1. Get DB
+        try{
             const db = getDB();
-            // 2. Get the collection
-            const collection = db.collection("products");
-            // 3. Find all the products 
-            return collection.find()
-        } catch (error) {
-            throw new ApplicationError("Something went wrong with the data", 500)
+            const collection = db.collection(this.collection);
+            const products = await collection.find().toArray();
+            console.log(products);
+            return products;
+        } catch(err){
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500);
         }
-
     }
 
+    async get(id){
+        try{
+            const db = getDB();
+            const collection = db.collection(this.collection);
+            return await collection.findOne({_id: new ObjectId(id)});
+        }catch(err){
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500);
+        }
+    }
+
+    async filter(minPrice, maxPrice, category){
+        try{
+            const db = getDB();
+            const collection = db.collection(this.collection);
+            let filterExpression={};
+            if(minPrice){
+                filterExpression.price = {$gte: parseFloat(minPrice)}
+            }
+            if(maxPrice){
+                filterExpression.price = {...filterExpression.price, $lte: parseFloat(maxPrice)}
+            }
+            if(category){
+                filterExpression.category=category;
+            }
+            return await collection.find(filterExpression).toArray();
+            
+        }catch(err){
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500);
+        }
+    }
+
+    // async rate(userID, productID, rating){
+    //     try{
+    //         const db = getDB();
+    //         const collection = db.collection(this.collection);
+    //         // 1. Find the product
+    //         const product = await collection.findOne({_id:new ObjectId(productID)})
+    //         // 2. Find the rating
+           
+    //         const userRating = await product?.ratings?.find(r=>r.userID==userID);
+    //         if(userRating){
+    //         // 3. Update the rating
+    //         await collection.updateOne({
+    //             _id: new ObjectId(productID), "ratings.userID": new ObjectId(userID)
+    //         },{
+    //             $set:{
+    //                 "ratings.$.rating":rating
+    //             }
+    //         }
+    //         );
+    //         }else{
+    //             await collection.updateOne({
+    //                 _id:new ObjectId(productID)
+    //             },{
+    //                 $push: {ratings: {userID:new ObjectId(userID), rating}}
+    //             })
+    //         }
+    //     }catch(err){
+    //         console.log(err);
+    //         throw new ApplicationError("Something went wrong with database", 500);
+    //     }
+    // }
+
+    async rate(userID, productID, rating){
+        try{
+            const db = getDB();
+            const collection = db.collection(this.collection);
+            
+            // 1. Removes existing entry
+            await collection.updateOne({
+                _id:new ObjectId(productID)
+            },
+            {
+                $pull:{ratings:{userID: new ObjectId(userID)}}
+            })
+
+            // 2. Add new entry
+            await collection.updateOne({
+                _id:new ObjectId(productID)
+            },{
+                $push: {ratings: {userID:new ObjectId(userID), rating}}
+            })
+
+        }catch(err){
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500);
+        }
+    }
 }
 
 export default ProductRepository;

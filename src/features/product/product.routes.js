@@ -3,8 +3,8 @@
 // 1. Import express.
 import express from 'express';
 import ProductController from './product.controller.js';
-import { upload } from '../../middlewares/fileUpload.middleware.js';
-//import UserController from '../user/user.controller.js';
+import { upload } from '../../middlewares/fileupload.middleware.js';
+import jwtAuth from '../../middlewares/jwt.middleware.js';
 
 // 2. Initialize Express router.
 const productRouter = express.Router();
@@ -16,29 +16,35 @@ const productController = new ProductController();
 
 // localhost:4100/api/products/filter?minPrice=10&maxPrice=20&category=Category1
 productRouter.post(
-  '/rate',
-  productController.rateProduct
+  '/rate',jwtAuth,
+  (req, res, next)=>{
+    productController.rateProduct(req, res, next)
+ }
 );
 productRouter.get(
   '/filter',
-  productController.filterProducts
+  (req, res)=>{
+    productController.filterProducts(req, res)
+ }
 );
 productRouter.get(
   '/',
   (req, res)=>{
     productController.getAllProducts(req, res)
-  }
+ }
 );
 productRouter.post(
   '/',
-  upload.single('imageUrl'),(req, res)=>{
+  upload.single('imageUrl'),
+  (req, res)=>{
     productController.addProduct(req, res)
-  }
+ }
 );
 productRouter.get(
-  '/:id',(req, res)=>{
+  '/:id',
+  (req, res)=>{
     productController.getOneProduct(req, res)
-  }
+ }
 );
 
 export default productRouter;
