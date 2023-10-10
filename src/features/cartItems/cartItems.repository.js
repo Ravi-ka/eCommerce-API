@@ -11,7 +11,8 @@ export default class CartItemsRepository{
         try{
         const db = getDB();
         const collection = db.collection(this.collection);
-        await collection.insertOne({productID: new ObjectId(productID), userID: new ObjectId(userID), quantity}) 
+        // Insertion
+        await collection.updateOne({productID: new ObjectId(productID), userID: new ObjectId(userID)},{$inc:{quantity:quantity}},{upsert: true}) 
         }catch(err){
             console.log(err);
             throw new ApplicationError("Something went wrong with database", 500);

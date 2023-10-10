@@ -22,3 +22,13 @@
 {"level":"info","message":"/ - {}","service":"request-logging"}
 {"level":"info","message":"/api/products - {}","service":"request-logging"}
 {"level":"info","message":"/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {}","service":"request-logging"}
+{"level":"info","message":"/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {}","service":"request-logging"}
+{"level":"info","message":"/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"shoe\",\"price\":123,\"sizes\":\"M\"}","service":"request-logging"}
+{"level":"info","message":"/ - {\"name\":\"shoe\",\"price\":123,\"sizes\":\"M\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"shoe\",\"desc\":\"\",\"price\":123,\"imageUrl\":\"\",\"category\":\"cat34234\",\"sizes\":\"M\"}","service":"request-logging"}
+{"level":"info","message":"/ - {\"name\":\"shoe\",\"desc\":\"\",\"price\":123,\"imageUrl\":\"\",\"category\":\"cat34234\",\"sizes\":\"M\"}","service":"request-logging"}
