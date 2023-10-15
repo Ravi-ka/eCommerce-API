@@ -7,7 +7,7 @@ dotenv.config();
 const url = process.env.DB_URL;
 
 let client;
-export const connectToMongoDB = ()=>{
+export const connectToMongoDB = ()=>{   //! Call "connectToMongoDB()" function on the server.js
     MongoClient.connect(url)
         .then(clientInstance=>{
             client=clientInstance

@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { getClient, getDB } from "../../config/mongodb.js";
+import { getDB } from "../../config/mongodb.js";
 import OrderModel from "./order.model.js";
 import { ApplicationError } from "../../error-handler/applicationError.js";
 
