@@ -1,0 +1,11 @@
+# Place Order
+    1. Get the cart items of the user, calculate the total amount.
+    2. Create a record for order.
+    3. Reduce the stock(products quantity).
+    4. Clear the cart.
+
+    Other functionalities
+    5. Deduct the payment.
+    6. Inform to the sellers.
+    7. Inform to the warehouse and packing.
+
