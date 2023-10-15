@@ -12,5 +12,4 @@
     SignUP - Email, Name, password, TypeOfUser(customer / seller) - Done
     SignIn - Email & Password - Done
 
-# Recap of Project
     
