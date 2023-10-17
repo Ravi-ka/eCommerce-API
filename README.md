@@ -23,8 +23,12 @@ This repo contains the backend APIs for the eCommerce application.
 </div>
 
 ###
-
-<p align="left"><b>🔻Implemented JWT Authentication.</b> <br>🔻<b>Used Swagger for the API Documentation</b></p>
+<h4>Key Functionalties :</h4>
+<p align="left"><b>🔻JWT Authentication</b> <br>
+  🔻<b>Swagger for the API Documentation</b> <br>
+  🔻<b>bcrypt for password hashing</b>
+  
+</p>
 
 ###
 
