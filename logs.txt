@@ -34,3 +34,5 @@
 {"level":"info","message":"/ - {\"name\":\"shoe\",\"desc\":\"\",\"price\":123,\"imageUrl\":\"\",\"category\":\"cat34234\",\"sizes\":\"M\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"test\",\"email\":\"dev@test.com\",\"password\":\"Admin123\",\"type\":\"Seller\"}","service":"request-logging"}
 {"level":"info","message":"/signup - {\"name\":\"test\",\"email\":\"dev@test.com\",\"password\":\"Admin123\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"newPassword\":\"Admin\"}","service":"request-logging"}
+{"level":"info","message":"/resetPassword - {\"newPassword\":\"Admin\"}","service":"request-logging"}
