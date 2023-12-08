@@ -25,8 +25,11 @@ This repo contains the backend APIs for the eCommerce application.
 ###
 <h4>Key Functionalties :</h4>
 <p align="left"><b>🔻JWT Authentication</b> <br>
-  🔻<b>Swagger for the API Documentation</b> <br>
-  🔻<b>bcrypt for password hashing</b>
+  🔻<b>Swagger - API Documentation</b> <br>
+  🔻<b>Winston Logger</b> <br>
+  🔻<b>Handled CORS Error</b> <br>
+  🔻<b>Securing API </b> <br>
+  🔻<b>Application Level Error Handling</b> <br>
   
 </p>
 
@@ -34,4 +37,3 @@ This repo contains the backend APIs for the eCommerce application.
 
 <br clear="both">
 <h6>Project Status: In progress</h6>
-
